@@ -39,6 +39,8 @@ public class StreamApp {
 
         printMatchName(matchName);
 
+        displayOldest(matchName);
+
 
     }
 
@@ -61,5 +63,20 @@ public class StreamApp {
             counter++;
         }
         System.out.println("Average age: " + averageAge(matchName));
+    }
+
+    public static void displayOldest(List<Person> matchName){
+        double oldest   = matchName.getFirst().getAge();
+        for (Person p : matchName){
+            if(p.getAge() > oldest){
+                oldest = p.getAge();
+            }
+        }
+        for (Person p : matchName){
+            if (p.getAge() == oldest){
+                System.out.println("Oldest " + p.getFirstName() + " " + p.getLastName());
+                break;
+            }
+        }
     }
 }
