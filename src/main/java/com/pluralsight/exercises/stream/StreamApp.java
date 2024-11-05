@@ -41,6 +41,8 @@ public class StreamApp {
 
         displayOldest(matchName);
 
+        displayYoungest(matchName);
+
 
     }
 
@@ -74,7 +76,22 @@ public class StreamApp {
         }
         for (Person p : matchName){
             if (p.getAge() == oldest){
-                System.out.println("Oldest " + p.getFirstName() + " " + p.getLastName());
+                System.out.println("Oldest: " + p.getFirstName() + " " + p.getLastName() + " Age: " + p.getAge());
+                break;
+            }
+        }
+    }
+
+    public static void displayYoungest(List<Person> matchName){
+        double youngest   = matchName.getFirst().getAge();
+        for (Person p : matchName){
+            if(p.getAge() < youngest){
+                youngest = p.getAge();
+            }
+        }
+        for (Person p : matchName){
+            if (p.getAge() == youngest){
+                System.out.println("Youngest: " + p.getFirstName() + " " + p.getLastName() + " Age: " + p.getAge());
                 break;
             }
         }
